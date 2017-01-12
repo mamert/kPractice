@@ -1,5 +1,6 @@
 package bloody.hell.kpractice.utils;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import java.lang.reflect.Field;
@@ -29,4 +30,11 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
+
+
+    public BaseFragment() {
+        super();
+        Bundle args = new Bundle();
+        setArguments(args); // so that getArguments() never gives null
+    }
 }

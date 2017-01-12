@@ -1,6 +1,8 @@
 package bloody.hell.kpractice;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import bloody.hell.kpractice.utils.BaseFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        initFragment();
     }
 
     @Override
@@ -55,4 +61,20 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+    public void initFragment() {
+        BaseFragment frag = MainFragment.newInstance();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        String fragTag = MainFragment.TAG;
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_container, frag, fragTag)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit();
+    }
+
+
 }
