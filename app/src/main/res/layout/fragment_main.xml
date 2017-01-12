@@ -27,5 +27,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text_from_qrcode" />
+    <Button
+        android:id="@+id/fraginteraction_button"
+        android:layout_below="@id/text_from_qrcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send to Activity" />
 
 </RelativeLayout>

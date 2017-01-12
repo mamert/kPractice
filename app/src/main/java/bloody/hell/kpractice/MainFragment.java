@@ -1,5 +1,6 @@
 package bloody.hell.kpractice;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import bloody.hell.kpractice.utils.BaseFragment;
 public class MainFragment extends BaseFragment {
     public static final String TAG = "base";
     ViewGroup rootView;
+
+    // init stuff
 
     public MainFragment() {
         super();
@@ -36,7 +39,7 @@ public class MainFragment extends BaseFragment {
 
 
 
-
+    // lifcycle stuff
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,7 +70,23 @@ public class MainFragment extends BaseFragment {
 
             }
         });
+        tv = (Button) rootView.findViewById(R.id.fraginteraction_button);
+        tv.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                mListener.testSendingStuffToActivity(stringFromJNI());
+            }
+        });
+
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        storeOnFragmentInteractionListener(context);
+    }
+
+
 
 
     /**
@@ -75,4 +94,36 @@ public class MainFragment extends BaseFragment {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+
+
+
+
+
+    // stuff for communication with hosting Activity\
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p/>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        void testSendingStuffToActivity(String s);
+    }
+
+    private OnFragmentInteractionListener mListener;
+
+    private void storeOnFragmentInteractionListener(Context context){
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
 }

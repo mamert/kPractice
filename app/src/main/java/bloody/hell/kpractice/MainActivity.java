@@ -11,10 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import bloody.hell.kpractice.utils.BaseFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainFragment.OnFragmentInteractionListener{
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -77,4 +78,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
+    // stuff from OnFragmentInteractionListeners
+    @Override
+    public void testSendingStuffToActivity(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
 }
