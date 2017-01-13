@@ -9,19 +9,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import bloody.hell.kpractice.utils.BaseFragment;
+import bloody.hell.kpractice.utils.BaseFrag;
 import bloody.hell.kpractice.utils.NoFastClick;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainFragment extends BaseFragment {
-    public static final String TAG = "base";
+public class MainFrag extends BaseFrag {
+    public static final String TAG = "home";
     ViewGroup rootView;
 
     // init stuff
 
-    public MainFragment() {
+    public MainFrag() {
         super();
     }
 
@@ -31,8 +31,8 @@ public class MainFragment extends BaseFragment {
      *
      * @return A new instance of fragment RecFragment.
      */
-    public static MainFragment newInstance() {
-        MainFragment fragment = new MainFragment();
+    public static MainFrag newInstance() {
+        MainFrag fragment = new MainFrag();
         // set arguments in Bundle
         return fragment;
     }

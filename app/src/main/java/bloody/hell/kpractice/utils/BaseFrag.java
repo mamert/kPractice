@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
  * Created by kaay on 2016-04-22.
  * Contains fixes to some Android bugs, as well as convenience methods
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFrag extends Fragment {
     // fix for onActivityResult not going to nested Fragments not necessary anymore: https://code.google.com/p/android/issues/detail?id=40537#c39
 
 
@@ -32,7 +32,7 @@ public abstract class BaseFragment extends Fragment {
 
 
 
-    public BaseFragment() {
+    public BaseFrag() {
         super();
         Bundle args = new Bundle();
         setArguments(args); // so that getArguments() never gives null

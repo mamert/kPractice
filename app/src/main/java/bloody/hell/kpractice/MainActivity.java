@@ -1,10 +1,8 @@
 package bloody.hell.kpractice;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,9 +14,9 @@ import android.widget.Toast;
 
 import java.util.LinkedList;
 
-import bloody.hell.kpractice.utils.BaseFragment;
+import bloody.hell.kpractice.utils.BaseFrag;
 
-public class MainActivity extends AppCompatActivity implements MainFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements MainFrag.OnFragmentInteractionListener{
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
             boolean refreshEvenIfSameTab,
             boolean clearBackStack,
             boolean removePreviousInstancesFromBackstack) {
-        BaseFragment frag = null;
+        BaseFrag frag = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (!refreshEvenIfSameTab && currentNavSection == itemId)
@@ -86,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         String fragTag = null;
         switch (itemId) {
             case R.id.menu_item_main:
-                frag = MainFragment.newInstance();
-                fragTag = MainFragment.TAG;
+                frag = MainFrag.newInstance();
+                fragTag = MainFrag.TAG;
                 break;
             default:
                 Toast.makeText(this, "Not implemented", Toast.LENGTH_SHORT).show();

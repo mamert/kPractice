@@ -3,7 +3,7 @@
 
 extern "C"
 jstring
-Java_bloody_hell_kpractice_MainFragment_stringFromJNI(
+Java_bloody_hell_kpractice_MainFrag_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
