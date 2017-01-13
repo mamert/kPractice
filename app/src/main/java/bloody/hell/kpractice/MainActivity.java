@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.LinkedList;
 
+import bloody.hell.kpractice.things.jni.JniMainFrag;
 import bloody.hell.kpractice.utils.BaseFrag;
 
 public class MainActivity extends AppCompatActivity implements MainFrag.OnFragmentInteractionListener{
@@ -86,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements MainFrag.OnFragme
             case R.id.menu_item_main:
                 frag = MainFrag.newInstance();
                 fragTag = MainFrag.TAG;
+                break;
+            case R.id.menu_item_jni:
+                frag = JniMainFrag.newInstance();
+                fragTag = JniMainFrag.TAG;
                 break;
             default:
                 Toast.makeText(this, "Not implemented", Toast.LENGTH_SHORT).show();

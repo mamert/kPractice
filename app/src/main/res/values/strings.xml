@@ -2,6 +2,6 @@
     <string name="app_name">kPractice</string>
     <string name="menu_item_main">Main</string>
     <string name="menu_item_qr">Scan QR code</string>
-
+    <string name="menu_item_jni">JNI (native code) test</string>
 
 </resources>

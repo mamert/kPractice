@@ -8,8 +8,13 @@
         android:title="@string/menu_item_main"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_item_qr"
+        android:id="@+id/menu_item_jni"
         android:orderInCategory="200"
+        android:title="@string/menu_item_jni"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_qr"
+        android:orderInCategory="300"
         android:title="@string/menu_item_qr"
         app:showAsAction="never" />
 </menu>

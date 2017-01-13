@@ -29,7 +29,7 @@ public class MainFrag extends BaseFrag {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment RecFragment.
+     * @return A new instance of fragment
      */
     public static MainFrag newInstance() {
         MainFrag fragment = new MainFrag();
@@ -60,22 +60,11 @@ public class MainFrag extends BaseFrag {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView tv = (TextView) rootView.findViewById(R.id.text_from_jni);
-        // Example of a call to a native method
-        tv.setText(stringFromJNI());
-
-        tv = (Button) rootView.findViewById(R.id.qr_button);
+        TextView tv = (Button) rootView.findViewById(R.id.fraginteraction_button);
         tv.setOnClickListener(new NoFastClick.ViewOnClickListener(){
             @Override
             public void doOnClick(View view) {
-
-            }
-        });
-        tv = (Button) rootView.findViewById(R.id.fraginteraction_button);
-        tv.setOnClickListener(new NoFastClick.ViewOnClickListener(){
-            @Override
-            public void doOnClick(View view) {
-                mListener.testSendingStuffToActivity(stringFromJNI());
+                mListener.testSendingStuffToActivity("String sent from "+MainFrag.this.getClass().getName());
             }
         });
 
@@ -86,17 +75,6 @@ public class MainFrag extends BaseFrag {
         super.onAttach(context);
         storeOnFragmentInteractionListener(context);
     }
-
-
-
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
-
-
 
 
 

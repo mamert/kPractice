@@ -12,10 +12,9 @@
     android:gravity="center"
     tools:showIn="@layout/activity_main">
 
-    <Button
-        android:id="@+id/fraginteraction_button"
+    <TextView
+        android:id="@+id/text_from_jni"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send to Activity" />
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
