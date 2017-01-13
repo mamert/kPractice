@@ -1,5 +1,6 @@
 package bloody.hell.kpractice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import java.util.LinkedList;
 
 import bloody.hell.kpractice.utils.BaseFragment;
 
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
             }
         });
 
-        initFragment();
+        navigateTo(R.id.menu_item_main, true);
     }
 
     @Override
@@ -53,29 +56,64 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(!navigateTo(item.getItemId(), false))
+            return super.onOptionsItemSelected(item);
+        return true;
+    }
+
+
+
+    // navigation stuff
+
+    private int currentNavSection = -1;
+    private LinkedList<Integer> fragBackstack_WellKindOf = new LinkedList<>();
+
+    public boolean navigateTo(int itemId, boolean refreshEvenIfSameTab){
+        return navigateTo(itemId, refreshEvenIfSameTab, false, false);
+    }
+    public boolean navigateTo(
+            int itemId,
+            boolean refreshEvenIfSameTab,
+            boolean clearBackStack,
+            boolean removePreviousInstancesFromBackstack) {
+        BaseFragment frag = null;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        if (!refreshEvenIfSameTab && currentNavSection == itemId)
+            return false; // do nothing, same section
+
+        String fragTag = null;
+        switch (itemId) {
+            case R.id.menu_item_main:
+                frag = MainFragment.newInstance();
+                fragTag = MainFragment.TAG;
+                break;
+            default:
+                Toast.makeText(this, "Not implemented", Toast.LENGTH_SHORT).show();
+                break;
         }
 
-        return super.onOptionsItemSelected(item);
+        if (frag != null) {
+            currentNavSection = itemId;
+            fragmentManager.beginTransaction()
+                    .replace(R.id.main_container, frag, fragTag)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit();
+
+            Integer iid = new Integer(itemId);
+
+            if(clearBackStack){
+                fragBackstack_WellKindOf.clear();
+            } else if(removePreviousInstancesFromBackstack){
+                fragBackstack_WellKindOf.remove(iid);
+            }
+            fragBackstack_WellKindOf.push(iid);
+            return true;
+        }
+        return false;
     }
 
-
-
-
-    public void initFragment() {
-        BaseFragment frag = MainFragment.newInstance();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        String fragTag = MainFragment.TAG;
-
-        fragmentManager.beginTransaction()
-                .replace(R.id.main_container, frag, fragTag)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .commit();
-    }
 
 
 
