@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import bloody.hell.kpractice.utils.BaseFragment;
+import bloody.hell.kpractice.utils.NoFastClick;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -64,16 +65,16 @@ public class MainFragment extends BaseFragment {
         tv.setText(stringFromJNI());
 
         tv = (Button) rootView.findViewById(R.id.qr_button);
-        tv.setOnClickListener(new View.OnClickListener(){
+        tv.setOnClickListener(new NoFastClick.ViewOnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void doOnClick(View view) {
 
             }
         });
         tv = (Button) rootView.findViewById(R.id.fraginteraction_button);
-        tv.setOnClickListener(new View.OnClickListener(){
+        tv.setOnClickListener(new NoFastClick.ViewOnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void doOnClick(View view) {
                 mListener.testSendingStuffToActivity(stringFromJNI());
             }
         });
