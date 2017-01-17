@@ -19,6 +19,9 @@
 **/gradle/
 **/build/
 
+# Signing files
+.signing/
+
 # Local configuration file (sdk path, etc)
 local.properties
 
@@ -39,6 +42,13 @@ local.properties
 **/.idea/workspace.xml
 **/.idea/libraries
 **/.idea/codeStyleSettings.xml
+**/.idea/tasks.xml
+**/.idea/.name
+**/.idea/copyright/profiles_settings.xml
+**/.idea/encodings.xml
+**/.idea/misc.xml
+**/.idea/modules.xml
+**/.idea/scopes/scope_settings.xml
 
 # Sharing Project Code Style & Run Configs (for Android Studio only)
 !**/.idea/codeStyleSettings.xml
@@ -48,6 +58,7 @@ local.properties
 
 # OS nonsense
 Thumbs.db
+ehthumbs.db
 .Trashes
 .DS_Store
 .DS_Store?
