@@ -5,4 +5,5 @@ package bloody.hell.kpractice.things.jni;
  */
 public interface AJniCallbackReceiver {
     public abstract void simpleJniCallback(String s);
+    public abstract String anotherJniCallback(String s);
 }
