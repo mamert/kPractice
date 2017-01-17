@@ -1,6 +1,5 @@
 package bloody.hell.kpractice.things.jni;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import bloody.hell.kpractice.R;
 import bloody.hell.kpractice.utils.BaseFrag;
@@ -16,9 +16,16 @@ import bloody.hell.kpractice.utils.NoFastClick;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class JniMainFrag extends BaseFrag {
+public class JniMainFrag extends BaseFrag implements AJniCallbackReceiver {
     public static final String TAG = "jniMain";
     ViewGroup rootView;
+    TextView textView;
+
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("native-lib");
+        System.loadLibrary("complicated");
+    }
 
     // init stuff
 
@@ -61,9 +68,17 @@ public class JniMainFrag extends BaseFrag {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView tv = (TextView) rootView.findViewById(R.id.text_from_jni);
+        textView = (TextView) rootView.findViewById(R.id.text_from_jni);
         // Example of a call to a native method
-        tv.setText(stringFromJNI());
+        textView.setText(stringFromJNI());
+        Button b = (Button) rootView.findViewById(R.id.jni_button1);
+        // Example of a call to a native method
+        b.setOnClickListener(new NoFastClick.ViewOnClickListener(){
+            @Override
+            public void doOnClick(View view) {
+                textView.setText(testCallback1(JniMainFrag.this));
+            }
+        });
     }
 
     /**
@@ -72,7 +87,12 @@ public class JniMainFrag extends BaseFrag {
      */
     public native String stringFromJNI();
 
+    public native String testCallback1(AJniCallbackReceiver callback);
 
 
+    @Override
+    public void simpleJniCallback(String s) { // to be called FROM the C++ code
+            Toast.makeText(getContext(), "callback from jni: "+s, Toast.LENGTH_SHORT).show();
+    }
 
 }

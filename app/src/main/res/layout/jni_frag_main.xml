@@ -17,4 +17,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:layout_below="@+id/text_from_jni"
+        android:id="@+id/jni_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do stuff 1" />
+
+    <Button
+        android:layout_below="@+id/jni_button1"
+        android:id="@+id/jni_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do stuff 2" />
+
 </RelativeLayout>
