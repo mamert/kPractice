@@ -10,7 +10,7 @@
 jstring invokeSimpleCallback(
         JNIEnv *env,
         jobject callback,
-        jstring message){
+        jstring message){ // more on types: http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html
 
 //    jclass cls = env->FindClass("bloody/hell/kpractice/things/jni/JniMainFrag");
     jclass cls = env->GetObjectClass(callback);
