@@ -14,7 +14,7 @@ import bloody.hell.kpractice.utils.BaseFrag;
 import bloody.hell.kpractice.utils.NoFastClick;
 
 /**
- * A placeholder fragment containing a simple view.
+ * test: interface with native code
  */
 public class JniMainFrag extends BaseFrag implements AJniCallbackReceiver {
     public static final String TAG = "jniMain";

@@ -45,7 +45,7 @@ public class MainFrag extends BaseFrag {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_main, container, false);
+        rootView = (ViewGroup) inflater.inflate(R.layout.frag_main, container, false);
         return rootView;
     }
 

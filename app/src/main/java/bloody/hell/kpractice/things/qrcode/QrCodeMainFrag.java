@@ -18,7 +18,7 @@ import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 /**
- * A placeholder fragment containing a simple view.
+ * test: launching QR scanner
  */
 public class QrCodeMainFrag extends BaseFrag implements ZBarScannerView.ResultHandler {
     public static final String TAG = "qrMain";
