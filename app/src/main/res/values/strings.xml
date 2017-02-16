@@ -1,15 +1,6 @@
 <resources>
     <string name="app_name">kPractice</string>
     <string name="menu_item_main">Main</string>
-    <string name="menu_item_qr">Scan QR code</string>
-    <string name="menu_item_jni">JNI (native code) test</string>
-
-
-
-    <string name="qrscan_perm_title">Camera Access</string>
-    <string name="qrscan_perm_rationale">We need to access your camera to scan a QR code on your device.</string>
-    <string name="qrscan_perm_grant">OK</string>
-    <string name="qrscan_perm_deny">No</string>
 
 
 </resources>
