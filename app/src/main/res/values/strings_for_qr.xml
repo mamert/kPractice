@@ -6,5 +6,7 @@
     <string name="qrscan_perm_grant">OK</string>
     <string name="qrscan_perm_deny">No</string>
 
+    <string name="qrscan_button1">Scan QR Code</string>
+
 
 </resources>

@@ -8,7 +8,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="bloody.hell.kpractice.MainFrag"
     android:gravity="center"
     tools:showIn="@layout/activity_main">
 
@@ -22,13 +21,13 @@
         android:id="@+id/jni_button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Do stuff 1" />
+        android:text="@string/jni_button1" />
 
     <Button
         android:layout_below="@+id/jni_button1"
         android:id="@+id/jni_button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Do stuff 2" />
+        android:text="@string/jni_button2" />
 
 </RelativeLayout>

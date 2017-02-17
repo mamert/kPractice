@@ -1,5 +1,7 @@
 <resources>
     <string name="menu_item_jni">JNI (native code) test</string>
+    <string name="jni_button1">Do stuff 1</string>
+    <string name="jni_button2">Do stuff 2</string>
 
     
 </resources>
