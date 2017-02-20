@@ -17,4 +17,9 @@
         android:orderInCategory="300"
         android:title="@string/menu_item_qr"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_dropbox"
+        android:orderInCategory="400"
+        android:title="@string/menu_item_dropbox"
+        app:showAsAction="never" />
 </menu>

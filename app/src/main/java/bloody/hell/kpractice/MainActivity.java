@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.LinkedList;
 
+import bloody.hell.kpractice.things.dropbox.DropboxMainFrag;
 import bloody.hell.kpractice.things.jni.JniMainFrag;
 import bloody.hell.kpractice.things.qrcode.QrCodeMainFrag;
 import bloody.hell.kpractice.utils.BaseFrag;
@@ -91,6 +92,10 @@ public class MainActivity extends AppCompatActivity implements MainFrag.OnFragme
             case R.id.menu_item_qr:
                 frag = QrCodeMainFrag.newInstance();
                 fragTag = QrCodeMainFrag.TAG;
+                break;
+            case R.id.menu_item_dropbox:
+                frag = DropboxMainFrag.newInstance();
+                fragTag = DropboxMainFrag.TAG;
                 break;
             default:
                 Toast.makeText(this, "Not implemented", Toast.LENGTH_SHORT).show();

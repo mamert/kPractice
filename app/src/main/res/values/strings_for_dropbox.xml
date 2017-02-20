@@ -1,5 +1,12 @@
 <resources>
-    <string name="menu_item_jni">JNI (native code) test</string>
+    <string name="menu_item_dropbox">Dropbox</string>
 
-    
+    <string name="dropbox_api_key">yd6cft6jix7aals</string>
+    <string name="dropbox_redirect_url">kpractice://some_string_meant_to_be_caught_not_loaded</string>
+    <string name="dropbox_auth_url">https://www.dropbox.com/oauth2/authorize</string><!-- the only endpoint on www.dropbox.com -->
+    <string name="dropbox_api_url">https://api.dropboxapi.com/</string>
+
+    <string name="dropbox_signin">Sign in to Dropbox</string>
+
+
 </resources>

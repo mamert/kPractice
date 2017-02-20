@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bloody.hell.kpractice">
     <uses-permission android:name="android.permission.CAMERA" /><!-- for camera QR code scanning -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
