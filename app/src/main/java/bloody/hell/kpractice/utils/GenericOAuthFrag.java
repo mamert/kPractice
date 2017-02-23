@@ -59,7 +59,7 @@ public class GenericOAuthFrag extends DialogFragment{
     private String[] mReturnParams;
     private WebView mWebview;
     private View mLoadingView;
-    private CallBack mCallBack;
+    private Callback mCallBack;
 
     private boolean receivedAccessToken = false;
     private boolean isAutoDissmissed = false;
@@ -85,7 +85,7 @@ public class GenericOAuthFrag extends DialogFragment{
         return this;
     }
 
-    public void setCallback(CallBack result) {
+    public void setCallback(Callback result) {
         this.mCallBack = result;
     }
 
@@ -262,7 +262,7 @@ public class GenericOAuthFrag extends DialogFragment{
     }
 
 
-    public interface CallBack {
+    public interface Callback {
 
         public void onSuccess(HashMap<String, String> data);
         

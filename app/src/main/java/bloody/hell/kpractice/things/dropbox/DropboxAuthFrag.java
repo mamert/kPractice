@@ -19,10 +19,10 @@ public class DropboxAuthFrag extends GenericOAuthFrag {
         super();
     }
 
-    public static DropboxAuthFrag showAuthDialog(Context c, FragmentManager fm, CallBack callback) {
+    public static DropboxAuthFrag showAuthDialog(Context c, FragmentManager fm, Callback callback) {
         return showAuthDialog(c.getResources(), fm, callback);
     }
-    public static DropboxAuthFrag showAuthDialog(Resources res, FragmentManager fm, CallBack callback) {
+    public static DropboxAuthFrag showAuthDialog(Resources res, FragmentManager fm, Callback callback) {
         DropboxAuthFrag authWebviewFragment = new DropboxAuthFrag();
         authWebviewFragment.setCallback(callback);
         String uri = res.getString(R.string.dropbox_auth_url);
