@@ -37,6 +37,10 @@ public class MainFrag extends BaseFrag {
         return fragment;
     }
 
+    @Override
+    protected String getVolleyTag() {
+        return TAG;
+    }
 
 
 

@@ -45,6 +45,10 @@ public class JniMainFrag extends BaseFrag implements AJniCallbackReceiver {
         return fragment;
     }
 
+    @Override
+    protected String getVolleyTag() {
+        return TAG;
+    }
 
 
 

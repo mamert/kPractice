@@ -3,7 +3,12 @@ package bloody.hell.kpractice.utils;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+
 import java.lang.reflect.Field;
+
+import bloody.hell.kpractice.things.volley.VolleySingleton;
 
 /**
  * Created by kaay on 2016-04-22.
@@ -37,4 +42,21 @@ public abstract class BaseFrag extends Fragment {
         Bundle args = new Bundle();
         setArguments(args); // so that getArguments() never gives null
     }
+
+
+    @Override
+    public void onStop() { // cancel all requests initiated by this Fragment
+        super.onStop();
+        RequestQueue requestQueue = VolleySingleton.getInstance(getContext()).getRequestQueue();
+        if (requestQueue != null) {
+            requestQueue.cancelAll(this);
+        }
+    }
+
+    protected void addToRequestQueue(Request req) { // shortcut; assigns tag
+        req.setTag(this);
+        VolleySingleton.getInstance(getContext()).getRequestQueue().add(req);
+    }
+
+    protected abstract String getVolleyTag();
 }

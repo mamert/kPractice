@@ -18,8 +18,15 @@
         android:layout_height="wrap_content"
         android:text="@string/dropbox_signin" />
 
-    <TextView
+    <Button
         android:layout_below="@+id/dropbox_button1"
+        android:id="@+id/dropbox_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dropbox_list" />
+
+    <TextView
+        android:layout_below="@+id/dropbox_button2"
         android:id="@+id/dropbox_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
