@@ -1,13 +1,10 @@
 package bloody.hell.kpractice.things.dropbox;
 
-import android.app.Activity;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.app.FragmentManager;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import bloody.hell.kpractice.utils.GenericOAuthFrag;
 
