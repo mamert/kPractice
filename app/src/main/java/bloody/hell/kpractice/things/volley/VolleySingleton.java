@@ -46,6 +46,12 @@ public class VolleySingleton {
     }
 
 
+    public void cancelAllRequestsFor(Object tag){
+        RequestQueue requestQueue = getRequestQueue();
+        if (requestQueue != null) {
+            requestQueue.cancelAll(tag);
+        }
+    }
 
     public RequestQueue getRequestQueue() {
         return requestQueue;

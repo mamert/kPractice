@@ -47,10 +47,7 @@ public abstract class BaseFrag extends Fragment {
     @Override
     public void onStop() { // cancel all requests initiated by this Fragment
         super.onStop();
-        RequestQueue requestQueue = VolleySingleton.getInstance(getContext()).getRequestQueue();
-        if (requestQueue != null) {
-            requestQueue.cancelAll(this);
-        }
+        VolleySingleton.getInstance(getContext()).cancelAllRequestsFor(this);
     }
 
     protected void addToRequestQueue(Request req) { // shortcut; assigns tag
