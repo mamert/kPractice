@@ -58,5 +58,4 @@ public abstract class BaseFrag extends Fragment {
         VolleySingleton.getInstance(getContext()).getRequestQueue().add(req);
     }
 
-    protected abstract String getVolleyTag();
 }

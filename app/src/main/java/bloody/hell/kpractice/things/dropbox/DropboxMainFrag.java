@@ -50,11 +50,6 @@ public class DropboxMainFrag extends BaseFrag implements DropboxAuth.Callback {
         return fragment;
     }
 
-    @Override
-    protected String getVolleyTag() {
-        return TAG;
-    }
-
 
 
     // lifcycle stuff

@@ -42,11 +42,6 @@ public class QrCodeMainFrag extends BaseFrag implements ZBarScannerView.ResultHa
         return fragment;
     }
 
-    @Override
-    protected String getVolleyTag() {
-        return TAG;
-    }
-
 
 
     // lifcycle stuff
