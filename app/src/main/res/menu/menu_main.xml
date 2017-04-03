@@ -22,4 +22,9 @@
         android:orderInCategory="400"
         android:title="@string/menu_item_dropbox"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_ui"
+        android:orderInCategory="500"
+        android:title="@string/menu_item_ui"
+        app:showAsAction="never" />
 </menu>
