@@ -30,7 +30,7 @@ public class DropboxAuthFrag extends GenericOAuthFrag {
 
         return (DropboxAuthFrag) authWebviewFragment.show(fm, uri, redirectUri,
                 res.getString(R.string.dropbox_api_key),
-                true, KEY_TOKEN);
+                true, false, KEY_TOKEN);
     }
 
 }

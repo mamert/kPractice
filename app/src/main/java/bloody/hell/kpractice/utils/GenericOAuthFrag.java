@@ -49,6 +49,7 @@ public class GenericOAuthFrag extends DialogFragment{
     private static final String KEY_CSRF_STATE = "state";
     private static final String KEY_CALLBACK_RESULT = "callback_result";
     private static final String KEY_AUTH_URL = "auth_url";
+    public static final String KEY_SPOOF_BROWSER = "spoofBrowser";
 
     private String state_string = null; // CSRF protection
     private HashMap<String, String> result = new HashMap<>();
@@ -60,27 +61,30 @@ public class GenericOAuthFrag extends DialogFragment{
     private WebView mWebview;
     private View mLoadingView;
     private Callback mCallBack;
+    private boolean pretendToBeAnExternalBrowser;
 
     private boolean receivedAccessToken = false;
     private boolean isAutoDissmissed = false;
+    private Map<String, String> extraHeaders;
 
     public GenericOAuthFrag() {
-
+        extraHeaders = new HashMap<String, String>();
     }
 
-    private void setArgs(String uri, String redirectUri, String clientId, boolean useCsrfState, String... returnParams) {
+    private void setArgs(String uri, String redirectUri, String clientId, boolean useCsrfState, boolean pretendToBeAnExternalBrowser, String... returnParams) {
         Bundle bundle = new Bundle();
         bundle.putString(KEY_AUTH_URL, uri);
         bundle.putString(KEY_REDIRECT_URI, redirectUri);
         bundle.putString(KEY_CLIENT_ID, clientId);
         bundle.putBoolean(KEY_CSRF_STATE, useCsrfState);
+        bundle.putBoolean(KEY_SPOOF_BROWSER, pretendToBeAnExternalBrowser); // pretend to be a browser rather than a webview (Google)
         bundle.putStringArray(KEY_RETURN_PARAMS, returnParams);
         setArguments(bundle);
     }
 
 
-    protected GenericOAuthFrag show(FragmentManager fm, String uri, String redirectUri, String clientId, boolean useCsrfState, String... returnParams) {
-        setArgs(uri, redirectUri, clientId, useCsrfState, returnParams);
+    protected GenericOAuthFrag show(FragmentManager fm, String uri, String redirectUri, String clientId, boolean useCsrfState, boolean pretendToBeAnExternalBrowser, String... returnParams) {
+        setArgs(uri, redirectUri, clientId, useCsrfState, pretendToBeAnExternalBrowser, returnParams);
         show(fm, TAG);
         return this;
     }
@@ -115,6 +119,13 @@ public class GenericOAuthFrag extends DialogFragment{
             mRedirectUri = bundle.getString(KEY_REDIRECT_URI);
             mClientId = bundle.getString(KEY_CLIENT_ID);
             mUseCsrfState = bundle.getBoolean(KEY_CSRF_STATE, false);
+
+            pretendToBeAnExternalBrowser = bundle.getBoolean(KEY_SPOOF_BROWSER);
+            if(pretendToBeAnExternalBrowser){
+                extraHeaders.put("X-Requested-With", ""); // so it isn't recognized as an embedded browser
+                extraHeaders.put("X-Wap-Profile", ""); // this doesn't work
+            }
+
             mReturnParams = bundle.getStringArray(KEY_RETURN_PARAMS);
 
             state_string = "";
@@ -151,6 +162,8 @@ public class GenericOAuthFrag extends DialogFragment{
 //        cookieManager.removeAllCookie();
         mWebview.setVisibility(View.GONE);
         mWebview.getSettings().setJavaScriptEnabled(true); // often needed
+        if(pretendToBeAnExternalBrowser)
+            mWebview.getSettings().setUserAgentString("Mozilla/5.0 (Windows Phone 8.1;ARM; Trident/8.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like Gecko");
         if (Build.VERSION.SDK_INT <= 18) {
             mWebview.getSettings().setSavePassword(false);
         } else {
@@ -208,7 +221,7 @@ public class GenericOAuthFrag extends DialogFragment{
             }
 
         });
-        mWebview.loadUrl(authUrl);
+        mWebview.loadUrl(authUrl, extraHeaders);
 
     }
 
