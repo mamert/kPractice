@@ -3,6 +3,7 @@
     package="bloody.hell.kpractice">
     <uses-permission android:name="android.permission.CAMERA" /><!-- for camera QR code scanning -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"

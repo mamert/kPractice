@@ -1,6 +1,8 @@
 package bloody.hell.kpractice;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -66,6 +68,13 @@ public class MainFrag extends BaseFrag {
                 mListener.testSendingStuffToActivity("String sent from "+MainFrag.this.getClass().getName());
             }
         });
+        tv = (Button) rootView.findViewById(R.id.call_button);
+        tv.setOnClickListener(new NoFastClick.ViewOnClickListener(){
+            @Override
+            public void doOnClick(View view) {
+                makePhoneCall();
+            }
+        });
 
     }
 
@@ -102,6 +111,14 @@ public class MainFrag extends BaseFrag {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    private void makePhoneCall(){
+        Intent callIntent =
+                new Intent(Intent.ACTION_CALL); // or ACTION_DIAL - needs no permissions. NOTE: some phones do ACTION_CALL same as ACTION_DIAL
+        callIntent.setData(Uri.parse("tel:000000000"));
+        getContext().startActivity(callIntent);
+
     }
 
 }

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">kPractice</string>
     <string name="menu_item_main">Main</string>
+    <string name="label_send_to_act">Send to Activity</string>
+    <string name="label_call">Call</string>
 
 
 </resources>
