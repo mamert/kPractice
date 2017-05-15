@@ -45,3 +45,17 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
     compile 'com.google.code.gson:gson:2.8.0'
 }
+
+
+// audible signal when done
+afterEvaluate {
+    assembleDebug.doLast {
+        exec {
+            commandLine "K:\\progs\\smplayer-portable-16.11.0.0\\mplayer\\mplayer.exe \"K:\\beep.mp3\""
+        }
+    }
+}
+tasks.whenTaskAdded { task ->
+//    println 'TASK_ADDED:'+task.name
+}
+// more: https://www.safaribooksonline.com/library/view/gradle-beyond-the/9781449373801/ch03.html, https://discuss.gradle.org/t/how-to-execute-external-shell-command-on-an-appropriate-level/5393
