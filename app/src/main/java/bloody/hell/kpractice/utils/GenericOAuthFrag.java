@@ -163,7 +163,7 @@ public class GenericOAuthFrag extends DialogFragment{
         mWebview.setVisibility(View.GONE);
         mWebview.getSettings().setJavaScriptEnabled(true); // often needed
         if(pretendToBeAnExternalBrowser)
-            mWebview.getSettings().setUserAgentString("Mozilla/5.0 (Windows Phone 8.1;ARM; Trident/8.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like Gecko");
+            mWebview.getSettings().setUserAgentString(UserAgentBuilder.getUserAgentString(getActivity()));
         if (Build.VERSION.SDK_INT <= 18) {
             mWebview.getSettings().setSavePassword(false);
         } else {
@@ -171,6 +171,8 @@ public class GenericOAuthFrag extends DialogFragment{
         }
         mWebview.setVisibility(View.VISIBLE);
         mWebview.clearCache(true);
+        mWebview.getSettings().setLoadWithOverviewMode(true);
+        mWebview.getSettings().setUseWideViewPort(true);
         mWebview.setWebViewClient(new WebViewClient() {
 
             @Override
