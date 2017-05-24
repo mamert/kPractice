@@ -21,8 +21,11 @@ jstring invokeSimpleCallback(
     }
     env->CallVoidMethod(callback, methodid, message); // more on method calls: http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/functions.html
 
-    std::string hello = "Success, maybe?";
-    return env->NewStringUTF(hello.c_str());
+    env->DeleteLocalRef(cls); // else: "JNI ERROR (app bug): local reference table overflow (max=512)"
+
+
+    std::string hello = "Success, maybe?"; // no need to free mem, unless using "new std::string"  -then, use "delete"
+    return env->NewStringUTF(hello.c_str()); // unless returned, jobject must be freed with DeleteLocalRef
 }
 
 jstring invokeSimpleCallback(
