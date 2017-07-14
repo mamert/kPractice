@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements MainFrag.OnFragme
                 frag = UiMainFrag.newInstance();
                 fragTag = UiMainFrag.TAG;
                 break;
+            case R.id.menu_item_temp:
             default:
                 Toast.makeText(this, "Not implemented", Toast.LENGTH_SHORT).show();
                 break;
