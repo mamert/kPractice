@@ -1,10 +1,13 @@
 apply plugin: 'com.android.application'
 
+
+def final appIdBase = 'bloody.hell.kpractice'
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.1"
+
     defaultConfig {
-        applicationId "bloody.hell.kpractice"
         minSdkVersion 12
         targetSdkVersion 25
         versionCode 1
@@ -15,6 +18,8 @@ android {
                 cppFlags ""
             }
         }
+        resValue "string", "greetingString", "Greetz from ${applicationId}"
+
     }
     buildTypes {
         release {
@@ -27,7 +32,20 @@ android {
             path "CMakeLists.txt"
         }
     }
+
+    flavorDimensions "brand"//, "mode"
+
     productFlavors {
+        primary {
+            applicationId = appIdBase
+            resValue "string", "greetingString", "Greetz from ${applicationId}"
+            dimension "brand"
+        }
+        otherAppId {
+            applicationId = appIdBase + ".other"
+            resValue "string", "greetingString", "Greetz from ${applicationId}"
+            dimension "brand"
+        }
     }
 }
 
@@ -59,3 +77,4 @@ tasks.whenTaskAdded { task ->
 //    println 'TASK_ADDED:'+task.name
 }
 // more: https://www.safaribooksonline.com/library/view/gradle-beyond-the/9781449373801/ch03.html, https://discuss.gradle.org/t/how-to-execute-external-shell-command-on-an-appropriate-level/5393
+
