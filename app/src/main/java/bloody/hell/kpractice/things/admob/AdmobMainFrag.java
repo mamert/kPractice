@@ -14,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -22,6 +23,7 @@ import com.google.android.gms.ads.AdView;
 import bloody.hell.kpractice.R;
 import bloody.hell.kpractice.things.volley.VolleySingleton;
 import bloody.hell.kpractice.utils.BaseFrag;
+import bloody.hell.kpractice.utils.NoFastClick;
 
 /**
  * testing ads
@@ -31,6 +33,7 @@ public class AdmobMainFrag extends BaseFrag {
     private ViewGroup rootView;
     private AdView mAdView;
     private AdmobUtils.AdBetweenStuff adBetweenStuff;
+    private AdmobUtils.AdWithReward adWithReward;
 
     // init stuff
 
@@ -59,6 +62,7 @@ public class AdmobMainFrag extends BaseFrag {
         super.onActivityCreated(savedInstanceState);
         AdmobUtils.init(getActivity()); // only needs to be done once for the app, really...
         adBetweenStuff = AdmobUtils.getAdBetweenStuff(getContext());
+        adWithReward = AdmobUtils.getAdWithReward(getActivity());
     }
     @Override
     public void onStart(){
@@ -66,6 +70,7 @@ public class AdmobMainFrag extends BaseFrag {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         adBetweenStuff.load();
+        adWithReward.load();
     }
 
     @Override
@@ -73,6 +78,15 @@ public class AdmobMainFrag extends BaseFrag {
                              Bundle savedInstanceState) {
         rootView = (ViewGroup) inflater.inflate(R.layout.frag_admob_main, container, false);
         mAdView = (AdView) rootView.findViewById(R.id.adView);
+
+        Button b = (Button) rootView.findViewById(R.id.ad_button);
+        b.setOnClickListener(new NoFastClick.ViewOnClickListener(){
+            @Override
+            public void doOnClick(View view) {
+                adWithReward.show();
+                // TODO: listener
+            }
+        });
         return rootView;
     }
 
