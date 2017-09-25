@@ -28,6 +28,11 @@
         android:title="@string/menu_item_ui"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_item_admob"
+        android:orderInCategory="600"
+        android:title="@string/menu_item_admob"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_item_temp"
         android:orderInCategory="999999"
         android:title="@string/menu_item_temp"

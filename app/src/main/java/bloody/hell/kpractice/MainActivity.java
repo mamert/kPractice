@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.LinkedList;
 
+import bloody.hell.kpractice.things.admob.AdmobMainFrag;
 import bloody.hell.kpractice.things.dropbox.DropboxMainFrag;
 import bloody.hell.kpractice.things.jni.JniMainFrag;
 import bloody.hell.kpractice.things.qrcode.QrCodeMainFrag;
@@ -101,6 +102,10 @@ public class MainActivity extends AppCompatActivity implements MainFrag.OnFragme
             case R.id.menu_item_ui:
                 frag = UiMainFrag.newInstance();
                 fragTag = UiMainFrag.TAG;
+                break;
+            case R.id.menu_item_admob:
+                frag = AdmobMainFrag.newInstance();
+                fragTag = AdmobMainFrag.TAG;
                 break;
             case R.id.menu_item_temp:
             default:
