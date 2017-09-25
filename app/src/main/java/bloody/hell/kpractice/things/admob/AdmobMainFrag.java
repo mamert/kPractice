@@ -31,7 +31,8 @@ import bloody.hell.kpractice.utils.NoFastClick;
 public class AdmobMainFrag extends BaseFrag {
     public static final String TAG = "admob_stuff";
     private ViewGroup rootView;
-    private AdView mAdView;
+    private AdView topAdView;
+    private AdView bottomAdView;
     private AdmobUtils.AdBetweenStuff adBetweenStuff;
     private AdmobUtils.AdWithReward adWithReward;
 
@@ -68,7 +69,8 @@ public class AdmobMainFrag extends BaseFrag {
     public void onStart(){
         super.onStart();
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        topAdView.loadAd(adRequest);
+        bottomAdView.loadAd(adRequest);
         adBetweenStuff.load();
         adWithReward.load();
     }
@@ -77,7 +79,8 @@ public class AdmobMainFrag extends BaseFrag {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = (ViewGroup) inflater.inflate(R.layout.frag_admob_main, container, false);
-        mAdView = (AdView) rootView.findViewById(R.id.adView);
+        topAdView = (AdView) rootView.findViewById(R.id.topAdView);
+        bottomAdView = (AdView) rootView.findViewById(R.id.bottomAdView);
 
         Button b = (Button) rootView.findViewById(R.id.ad_button);
         b.setOnClickListener(new NoFastClick.ViewOnClickListener(){
