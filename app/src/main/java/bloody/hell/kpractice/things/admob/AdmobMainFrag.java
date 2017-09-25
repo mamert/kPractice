@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import bloody.hell.kpractice.R;
+import bloody.hell.kpractice.things.volley.VolleySingleton;
 import bloody.hell.kpractice.utils.BaseFrag;
 
 /**
@@ -29,6 +30,7 @@ public class AdmobMainFrag extends BaseFrag {
     public static final String TAG = "admob_stuff";
     private ViewGroup rootView;
     private AdView mAdView;
+    private AdmobUtils.AdBetweenStuff adBetweenStuff;
 
     // init stuff
 
@@ -56,12 +58,14 @@ public class AdmobMainFrag extends BaseFrag {
     public void onActivityCreated (Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
         AdmobUtils.init(getActivity()); // only needs to be done once for the app, really...
+        adBetweenStuff = AdmobUtils.getAdBetweenStuff(getContext());
     }
     @Override
     public void onStart(){
         super.onStart();
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        adBetweenStuff.load();
     }
 
     @Override
@@ -77,6 +81,14 @@ public class AdmobMainFrag extends BaseFrag {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        VolleySingleton.getInstance(getContext()).cancelAllRequestsFor(this);
+        adBetweenStuff.show();
     }
 
 

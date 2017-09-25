@@ -4,5 +4,6 @@
     <!-- don't mind the ad unit names -->
     <string name="admobAppId">PLEASE FILL</string>
     <string name="admobUnit_TestBanner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admobUnit_TestInterstitial">ca-app-pub-3940256099942544/1033173712</string>
 
 </resources>
