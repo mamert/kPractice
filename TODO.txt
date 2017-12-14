@@ -1,0 +1,24 @@
+* (done)add Fragment
+* (done)Fragment navigation, with callbacks
+* (done)add more buttons
+* (done) NoFastClick
+* (done)refactor "Fragment" to "Frag"
+* (done) sort into packages by tested function
+* (done) add qr code
+* (done) oauth generic Fragment.
+* (done) call number
+* (done) build hook - play MP3 when done
+* (done in part) add utils
+* (done in part) split by flavor
+* mongoose server (different native build system - how to reconcile? Can use both?) (rest, command interpreter)
+* Photo snap
+* Bluetooth terminal
+* //g: android developer tutorial interactive wallpaper
+* google Firebase, instead of polling
+* Volley
+* exoplayer
+* MVVM, Data Binding Library
+* dagger
+* kotlin
+* RxAndroid
+
