@@ -10,6 +10,7 @@
 * (done) build hook - play MP3 when done
 * (done in part) add utils
 * (done in part) split by flavor
+* (done in part) send email via Intent, example (TODO: call, create temp attachment - FileProvider)
 * mongoose server (different native build system - how to reconcile? Can use both?) (rest, command interpreter)
 * Photo snap
 * Bluetooth terminal
