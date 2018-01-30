@@ -196,6 +196,8 @@ public class GenericOAuthFrag extends DialogFragment{
                         e.printStackTrace();
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
+                    } catch(NullPointerException e){
+                        e.printStackTrace();
                     }
 
                     if(!csrfTokenMatches(result)){
