@@ -1,4 +1,4 @@
-package bloody.hell.kpractice.utils;
+package bloody.hell.kpractice.things.emailintent;
 
 import android.app.Activity;
 import android.content.Context;
