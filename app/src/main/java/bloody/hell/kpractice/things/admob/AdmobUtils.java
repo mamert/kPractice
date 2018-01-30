@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
@@ -30,6 +31,11 @@ public class AdmobUtils {
         String appId = ctx.getString(R.string.admobAppId);
         MobileAds.initialize(ctx, appId);
         initialized = true;
+    }
+
+    public static void loadBanner(AdView adView){
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
 

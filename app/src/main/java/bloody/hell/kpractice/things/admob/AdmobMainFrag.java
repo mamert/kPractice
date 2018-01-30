@@ -1,5 +1,6 @@
 package bloody.hell.kpractice.things.admob;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -68,9 +69,8 @@ public class AdmobMainFrag extends BaseFrag {
     @Override
     public void onStart(){
         super.onStart();
-        AdRequest adRequest = new AdRequest.Builder().build();
-        topAdView.loadAd(adRequest);
-        bottomAdView.loadAd(adRequest);
+        AdmobUtils.loadBanner(topAdView);
+        AdmobUtils.loadBanner(bottomAdView);
         adBetweenStuff.load();
         adWithReward.load();
     }
@@ -105,7 +105,10 @@ public class AdmobMainFrag extends BaseFrag {
     public void onStop() {
         super.onStop();
         VolleySingleton.getInstance(getContext()).cancelAllRequestsFor(this);
-        adBetweenStuff.show();
+        Activity a = getActivity();
+        if(a != null && !a.isFinishing()) {
+            adBetweenStuff.show();
+        }
     }
 
 
