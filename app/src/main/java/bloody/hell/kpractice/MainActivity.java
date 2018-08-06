@@ -18,6 +18,7 @@ import bloody.hell.kpractice.things.admob.AdmobMainFrag;
 import bloody.hell.kpractice.things.dropbox.DropboxMainFrag;
 import bloody.hell.kpractice.things.jni.JniMainFrag;
 import bloody.hell.kpractice.things.qrcode.QrCodeMainFrag;
+import bloody.hell.kpractice.things.talkintent.HangoutsThing;
 import bloody.hell.kpractice.things.ui.UiMainFrag;
 import bloody.hell.kpractice.utils.BaseFrag;
 
@@ -106,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements MainFrag.OnFragme
             case R.id.menu_item_admob:
                 frag = AdmobMainFrag.newInstance();
                 fragTag = AdmobMainFrag.TAG;
+                break;
+            case R.id.menu_item_talk:
+                Toast.makeText(this, "Opening Hangout", Toast.LENGTH_SHORT).show();
+                HangoutsThing.open(this);
                 break;
             case R.id.menu_item_temp:
             default:

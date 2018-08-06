@@ -33,6 +33,11 @@
         android:title="@string/menu_item_admob"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_item_talk"
+        android:orderInCategory="700"
+        android:title="@string/menu_item_talk"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_item_temp"
         android:orderInCategory="999999"
         android:title="@string/menu_item_temp"
