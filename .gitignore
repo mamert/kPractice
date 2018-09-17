@@ -49,6 +49,7 @@ local.properties
 **/.idea/misc.xml
 **/.idea/modules.xml
 **/.idea/scopes/scope_settings.xml
+/.idea/caches
 
 # Sharing Project Code Style & Run Configs (for Android Studio only)
 !**/.idea/codeStyleSettings.xml
