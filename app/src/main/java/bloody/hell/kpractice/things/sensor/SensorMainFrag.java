@@ -21,11 +21,13 @@ import bloody.hell.kpractice.utils.BaseFrag;
 public class SensorMainFrag extends BaseFrag {
     public static final String TAG = "admob_stuff";
     private ViewGroup rootView;
-    private TextView textGyroX, textGyroY, textGyroZ, textRotX, textRotY, textRotZ, textAccelZ, textAccelX, textAccelY;
+    private TextView textGyroX, textGyroY, textGyroZ,
+            textRotX, textRotY, textRotZ,
+            textMRotX, textMRotY, textMRotZ,
+            textGRotX, textGRotY, textGRotZ,
+            textAccelZ, textAccelX, textAccelY;
     private SensorManager sensorManager;
-    private Sensor gyroSensor;
-    private Sensor accelSensor;
-    private Sensor rotSensor;
+    private Sensor gyroSensor, accelSensor, rotSensor, gRotSensor, mRotSensor;
 
     // init stuff
 
@@ -59,6 +61,10 @@ public class SensorMainFrag extends BaseFrag {
         sensorManager.registerListener(gyroListener, gyroSensor, SensorManager.SENSOR_DELAY_NORMAL);
         rotSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sensorManager.registerListener(rotListener, rotSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        mRotSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR);
+        sensorManager.registerListener(mRotListener, mRotSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        gRotSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
+        sensorManager.registerListener(gRotListener, gRotSensor, SensorManager.SENSOR_DELAY_NORMAL);
         accelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(accelListener, accelSensor, SensorManager.SENSOR_DELAY_NORMAL);
 
@@ -75,6 +81,12 @@ public class SensorMainFrag extends BaseFrag {
         textRotX = rootView.findViewById(R.id.textRotX);
         textRotY = rootView.findViewById(R.id.textRotY);
         textRotZ = rootView.findViewById(R.id.textRotZ);
+        textMRotX = rootView.findViewById(R.id.textMRotX);
+        textMRotY = rootView.findViewById(R.id.textMRotY);
+        textMRotZ = rootView.findViewById(R.id.textMRotZ);
+        textGRotX = rootView.findViewById(R.id.textGRotX);
+        textGRotY = rootView.findViewById(R.id.textGRotY);
+        textGRotZ = rootView.findViewById(R.id.textGRotZ);
         textAccelX = rootView.findViewById(R.id.textAccelX);
         textAccelY = rootView.findViewById(R.id.textAccelY);
         textAccelZ = rootView.findViewById(R.id.textAccelZ);
@@ -113,6 +125,24 @@ public class SensorMainFrag extends BaseFrag {
             textRotX.setText(String.format("X : %.7f", event.values[0]));
             textRotY.setText(String.format("Y : %.7f", event.values[1]));
             textRotZ.setText(String.format("Z : %.7f", event.values[2]));
+        }
+    };
+    public SensorEventListener mRotListener = new SensorEventListener() {
+        public void onAccuracyChanged(Sensor sensor, int acc) {}
+
+        public void onSensorChanged(SensorEvent event) {
+            textMRotX.setText(String.format("X : %.7f", event.values[0]));
+            textMRotY.setText(String.format("Y : %.7f", event.values[1]));
+            textMRotZ.setText(String.format("Z : %.7f", event.values[2]));
+        }
+    };
+    public SensorEventListener gRotListener = new SensorEventListener() {
+        public void onAccuracyChanged(Sensor sensor, int acc) {}
+
+        public void onSensorChanged(SensorEvent event) {
+            textGRotX.setText(String.format("X : %.7f", event.values[0]));
+            textGRotY.setText(String.format("Y : %.7f", event.values[1]));
+            textGRotZ.setText(String.format("Z : %.7f", event.values[2]));
         }
     };
 

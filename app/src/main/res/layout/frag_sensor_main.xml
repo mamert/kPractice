@@ -71,6 +71,70 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Game Rotation Vector\n(gyro only, good for RELATIVE rotations)"
+        android:layout_marginTop="15sp"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textGRotX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textGRotY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:text=""
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textGRotZ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:text=""
+        android:textSize="20sp" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Geo-Magnetic Rotation Vector\n(magnetometer not gyro, noisy, low-power)"
+        android:layout_marginTop="15sp"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textMRotX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textMRotY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:text=""
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textMRotZ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:text=""
+        android:textSize="20sp" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Accel"
         android:layout_marginTop="15sp"
         android:textSize="12sp" />
