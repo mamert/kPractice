@@ -33,7 +33,7 @@ task clean(type: Delete) {
 }
 
 ext {
-    supportlib_version = '25.2.0'
+    supportlib_version = '27.1.0'
 }
 subprojects {
     project.configurations.all {

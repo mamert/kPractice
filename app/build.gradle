@@ -50,19 +50,19 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.google.android.gms:play-services-ads:11.2.0'
-    compile "com.android.support:appcompat-v7:$supportlib_version"
-    compile "com.android.support:design:$supportlib_version"
-    testCompile 'junit:junit:4.12'
-    compile 'me.dm7.barcodescanner:zbar:1.9'
-    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
-    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
-    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
-    compile 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.google.android.gms:play-services-ads:11.2.0'
+    implementation "com.android.support:appcompat-v7:$supportlib_version"
+    implementation "com.android.support:design:$supportlib_version"
+    testImplementation 'junit:junit:4.12'
+    implementation 'me.dm7.barcodescanner:zbar:1.9'
+    implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
 }
 
 
