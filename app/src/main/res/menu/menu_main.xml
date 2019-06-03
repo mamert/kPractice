@@ -38,6 +38,11 @@
         android:title="@string/menu_item_talk"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_item_sensor"
+        android:orderInCategory="800"
+        android:title="@string/menu_item_sensor"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_item_temp"
         android:orderInCategory="999999"
         android:title="@string/menu_item_temp"
